@@ -22,6 +22,24 @@
 @endif
 @endforeach
 
+<h2 class="mt-5">Portfolio</h2>
+<hr>
+<div class="row">
+
+@foreach($projects as $project)
+  <div class="col-lg-4 col-md-6">
+
+    <a href="{{ $project->url }}">
+      <img src="storage/project/{{$project->image}}" class="img-fluid mb-2">
+    </a>
+  
+  
+    <h3>{{ $project->title }}</h3>
+    <p>{{ $project->description }}</p>
+
+  </div>
+ @endforeach  
+</div>
 
 
 

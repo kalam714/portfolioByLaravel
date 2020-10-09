@@ -52,7 +52,7 @@
 
  <td>
   {!!Form::open(['action' => ['App\Http\Controllers\ImageController@destroy',$image->id],'method'=>'POST'])!!}
-{!!Form::hidden('_method','DELETE') !!}
+  {!!Form::hidden('_method','DELETE') !!}
 {{Form::submit('Delete')}}
 
 {!!Form::close()!!}

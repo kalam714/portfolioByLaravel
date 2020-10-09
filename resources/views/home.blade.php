@@ -13,8 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                  <a href="/upload">Image</a>
-                  
+                  <a href="/upload">Image</a> 
+                  <a href="/project">Project</a> 
                 </div>
             </div>
         </div>

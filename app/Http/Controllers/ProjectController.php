@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Project;
 
 class ProjectController extends Controller
 {
@@ -12,8 +13,9 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+        $projects=Project::all();
+        return view('admin.project',compact('projects'));
     }
 
     /**
@@ -34,7 +36,31 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title' =>'required',
+            'url' => 'required',
+            'description' => 'required',
+            
+            'image' =>'required',
+          ]);
+
+  
+            $fileNameWithExt=$request->file('image')->getClientOriginalName();
+            $fileName=pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            $extension=$request->file('image')->getClientOriginalExtension();
+            $fileNameToStore=$fileName.'_'.time().'.'.$extension;
+            $path=$request->file('image')->storeAS('public/project',$fileNameToStore);
+
+        
+       
+        $project=new Project();
+        $project->title=$request->input('title'); 
+        $project->description=$request->input('description');
+        $project->url=$request->input('url');
+       
+        $project->image=$fileNameToStore;
+        $project->save();
+        return redirect('/project');
     }
 
     /**
@@ -45,7 +71,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -56,7 +82,8 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project=Project::find($id);
+        return view('admin.editProject',compact('project'));
     }
 
     /**
@@ -68,7 +95,37 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $this->validate($request,[
+            'title' =>'required',
+            'url' => 'required',
+            'description' => 'required',
+            
+           
+          ]);
+
+  
+
+        
+       
+        $project=Project::find($id);
+        $project->title=$request->input('title'); 
+        $project->description=$request->input('description');
+        $project->url=$request->input('url');
+        if($request->hasFile('image')){
+            $fileNameWithExt=$request->file('image')->getClientOriginalName();
+            $fileName=pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            $extension=$request->file('image')->getClientOriginalExtension();
+            $fileNameToStore=$fileName.'_'.time().'.'.$extension;
+            $path=$request->file('image')->storeAS('public/project',$fileNameToStore);
+            $project->image=$fileNameToStore;
+
+        }
+       
+        
+        $project->update();
+        return redirect('/project');
+
     }
 
     /**
@@ -79,6 +136,8 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project=Project::find($id);
+        $project->delete();
+        return redirect('/project');
     }
 }

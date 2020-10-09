@@ -33,7 +33,7 @@
       <div class="collapse navbar-collapse text-center" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a role="button"  href="" class="btn btn-success"> Resume </a>
+            <a role="button"  href="{{asset('portfolio/kalam.pdf')}}" class="btn btn-success"> Resume </a>
 
           </li>
           <li class="nav-item">
