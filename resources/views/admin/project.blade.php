@@ -1,3 +1,4 @@
+@extends('layouts.app')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+@section('content')
 <h1>Upload image</h1>
 
 {!! Form::open(['action' => '\App\Http\Controllers\ProjectController@store','method'=>'POST', 'enctype'=>'multipart/form-data'])!!}
@@ -57,11 +59,11 @@
 {!!Form::close()!!}
 </td>
 
-    
-
+  @endforeach
 
  <td>
   @endforeach
 </td>
 </body>
 </html>
+@endsection

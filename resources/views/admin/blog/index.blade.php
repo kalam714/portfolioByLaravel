@@ -1,3 +1,4 @@
+@extends('layouts.app')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
     <title>Blog</title>
 </head>
 <body>
+@section('content')
 <h1>Blog Page</h1>
 {!! Form::open(['action' => '\App\Http\Controllers\BlogController@store','method'=>'POST'])!!}
                   {{csrf_field()}}
@@ -52,3 +54,4 @@
     
 </body>
 </html>
+@endsection

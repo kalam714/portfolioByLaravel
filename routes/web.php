@@ -31,6 +31,10 @@ Route::get('/upload', [ImageController::class, 'index']);
 Route::post('/uploadImage', [ImageController::class, 'store']);
 Route::delete('/del/{id}', [ImageController::class, 'destroy']);
 
+Route::post('/active/{id}', [ImageController::class, 'active']);
+
+Route::post('/unactive/{id}', [ImageController::class, 'unactive']);
+
 
 Route::get('/project', [ProjectController::class, 'index']);
 

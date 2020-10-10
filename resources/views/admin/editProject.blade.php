@@ -1,3 +1,4 @@
+@extends('layouts.app')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+@section('content')
 <h1>Update Project</h1>
 
 {!! Form::open(['action' => ['\App\Http\Controllers\ProjectController@update',$project->id],'method'=>'POST', 'enctype'=>'multipart/form-data'])!!}
@@ -32,3 +34,4 @@
                  {!! Form::close() !!}
 </body>
 </html>
+@endsection

@@ -44,5 +44,17 @@ class ImageController extends Controller
         $image->delete();
         return redirect('/upload');
     }
-    
+    public function active($id){
+        $image=Image::find($id);
+        $image->status=1;
+        $image->update;
+        return redirect('/upload');
+
+    }
+    public function unactive($id){
+        $image=Image::find($id);
+        $image->status=0;
+        $image->update;
+        return redirect('/upload');
+    }
 }
