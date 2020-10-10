@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kalam's Portfolio</title>
 </head>
 <body>
 @section('content')
-<h1>Upload image</h1>
+<h1>Project Page</h1>
 
 {!! Form::open(['action' => '\App\Http\Controllers\ProjectController@store','method'=>'POST', 'enctype'=>'multipart/form-data'])!!}
                   {{csrf_field()}}
@@ -61,8 +61,7 @@
 
   @endforeach
 
- <td>
-  @endforeach
+
 </td>
 </body>
 </html>
