@@ -15,6 +15,7 @@
                     @endif
                   <a href="/upload">Image</a> 
                   <a href="/project">Project</a> 
+                  <a href="/blog">Blog</a> 
                 </div>
             </div>
         </div>

@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Image;
 class ImageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $images=Image::all();
         return view('admin.image',compact('images'));

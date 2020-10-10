@@ -26,7 +26,7 @@
                     {{Form::text('url','',['class'=>'form-control'])}}
     
 
-                    {{Form::submit('update',['class'=>'btn btn-primary'])}}
+                    {{Form::submit('save',['class'=>'btn btn-primary'])}}
    
                  {!! Form::close() !!}
 

@@ -43,7 +43,7 @@
             <a class="nav-link" href="https://www.linkedin.com/in/kalam-ahmed-6602701a1/" target="_blank"><img src="{{asset('portfolio/linkdin.jpg')}}" width="30" height="30" class="d-inline-block align-top"></a>
           </li>
           <li>
-            <a role="button" href="" class="btn btn-primary">Blog</a>
+            <a role="button" href="/blogs" class="btn btn-primary">Blog</a>
           </li>
         </ul>
       </div>

@@ -16,7 +16,7 @@
 
 <div class="row justify-content-center mb-3">
   <div class="col-md-9 text-center">
-    <h6 id="hometext" class="font-weight-bold" {{$image->name}}  is a Developer 😊 😊</h6>
+    <h6 id="hometext" class="font-weight-bold"> {{$image->name}}  is a Developer 😊 😊</h6>
   </div>
 </div>
 @endif
